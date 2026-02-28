@@ -40,15 +40,16 @@ jobs:
 
     - name: Load config
       run: |
-        cp .config openwrt/.config
-        cd openwrt
-        make defconfig
+       cp .config openwrt/.config
+       cd openwrt
+       env -i bash -c "make defconfig"
+
 
     - name: Build firmware
       run: |
-        cd openwrt
-        make -j$(nproc) V=s
-
+       cd openwrt
+       env -i bash -c "make -j$(nproc)"
+    
     - name: Upload firmware
       uses: actions/upload-artifact@v4
       with:
