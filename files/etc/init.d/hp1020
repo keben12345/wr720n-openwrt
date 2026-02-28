@@ -1,0 +1,13 @@
+#!/bin/sh /etc/rc.common
+START=90
+
+start() {
+    for i in $(seq 1 20); do
+        if [ -e /dev/usb/lp0 ]; then
+            cat /lib/firmware/sihp1020.dl > /dev/usb/lp0
+            logger "HP1020 firmware uploaded"
+            return
+        fi
+        sleep 2
+    done
+}
