@@ -1,4 +1,4 @@
-name: Build OpenWrt WR720N
+name: Build OpenWrt WR720N-18.06
 
 on:
   workflow_dispatch:
